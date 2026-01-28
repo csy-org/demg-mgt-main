@@ -5,7 +5,7 @@ variable "resource_group_name" {
 
 variable "resource_group_create" {
   type    = bool
-  default = false
+  default = true
 }
 
 variable "location" {
@@ -86,3 +86,4 @@ variable "virtual_machine_sku" {
 variable "tags" {
   type = map(string)
 }
+
