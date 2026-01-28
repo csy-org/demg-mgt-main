@@ -11,7 +11,7 @@ module "virtual_network" {
   source  = "Azure/avm-res-network-virtualnetwork/azurerm"
   version = "0.8.1"
 
-  resource_group_name = module.resource_group.name
+  resource_group_name = module.resource_group[0].name
   location = var.location
   name                = local.resource_names.virtual_network_name
   subnets             = var.virtual_network_subnets
@@ -23,7 +23,7 @@ module "virtual_machine" {
   source  = "Azure/avm-res-compute-virtualmachine/azurerm"
   version = "0.18.1"
 
-  resource_group_name        = module.resource_group.name
+  resource_group_name        = module.resource_group[0].name
   os_type                    = "linux"
   name                       = local.resource_names.virtual_machine_name
   sku_size                   = var.virtual_machine_sku
@@ -52,4 +52,5 @@ module "virtual_machine" {
 
   tags = var.tags
 }
+
 
